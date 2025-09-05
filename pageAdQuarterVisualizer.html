@@ -36,53 +36,7 @@
         <span style="background:#e91e63; margin-left:20px;"></span> Gutter (between ads)
         <span style="background:#ffc107; margin-left:20px;"></span> Quarter Page Ad
     </div>
-        <script>
-        window.onload = function() {
-            // JS-based layout for quarter page ads
-            const inch = 96;
-            const pageWidth = 8.5;
-            const pageHeight = 11;
-            const safeZone = 0.125;
-            const ribbon = 0.25;
-            const gutter = 0.125;
-            // inner space calculations
-            const innerSpaceWidth = pageWidth - (safeZone * 2) - (ribbon * 2);
-            const innerSpaceHeight = pageHeight - (safeZone * 2) - (ribbon * 2);
-            const usableWidthWithGutter = innerSpaceWidth - gutter;
-            const usableHeightWithGutter = innerSpaceHeight - gutter;
-            // quarter ad size
-            const adQuarterWidth = usableWidthWithGutter / 2;
-            const adQuarterHeight = usableHeightWithGutter / 2;
-            // positions
-            const pageUsableXEdge = safeZone + ribbon;
-            const pageUsableYEdge = safeZone + ribbon;
-            const adQuarterTopLeftX = pageUsableXEdge;
-            const adQuarterTopLeftY = pageUsableYEdge;
-            const adQuarterTopRightX = pageUsableXEdge + adQuarterWidth + gutter;
-            const adQuarterTopRightY = pageUsableYEdge;
-            const adQuarterBottomLeftX = pageUsableXEdge;
-            const adQuarterBottomLeftY = pageUsableYEdge + gutter + adQuarterHeight;
-            const adQuarterBottomRightX = pageUsableXEdge + adQuarterWidth + gutter;
-            const adQuarterBottomRightY = pageUsableYEdge + gutter + adQuarterHeight;
-
-            function setAd(id, x, y, w, h) {
-                const el = document.getElementById(id);
-                el.style.left = (x * inch) + 'px';
-                el.style.top = (y * inch) + 'px';
-                el.style.width = (w * inch) + 'px';
-                el.style.height = (h * inch) + 'px';
-                el.style.background = 'rgba(255, 193, 7, 0.7)';
-                el.style.border = '2px solid red';
-                el.style.zIndex = '100';
-                el.innerHTML += `<ul style='position:absolute; bottom:10px; left:10px; background:rgba(255,255,255,0.85); padding:8px 14px; border-radius:6px; font-size:1em; color:#333; box-shadow:0 1px 4px rgba(0,0,0,0.07);'><li><strong>Dimensions:</strong> ${w.toFixed(4)} in × ${h.toFixed(4)} in</li><li><strong>Position (x, y):</strong> ${x.toFixed(4)} in, ${y.toFixed(4)} in</li></ul>`;
-                console.log(`Ad ${id}: left=${(x*inch)}px, top=${(y*inch)}px, width=${(w*inch)}px, height=${(h*inch)}px`);
-            }
-            setAd('ad-tl', adQuarterTopLeftX, adQuarterTopLeftY, adQuarterWidth, adQuarterHeight);
-            setAd('ad-tr', adQuarterTopRightX, adQuarterTopRightY, adQuarterWidth, adQuarterHeight);
-            setAd('ad-bl', adQuarterBottomLeftX, adQuarterBottomLeftY, adQuarterWidth, adQuarterHeight);
-            setAd('ad-br', adQuarterBottomRightX, adQuarterBottomRightY, adQuarterWidth, adQuarterHeight);
-        };
-        </script>
+        <script src="pageAdCalculator.js"></script>
     <div class="page">
         <div class="safe-zone"></div>
         <div class="ribbon"></div>
