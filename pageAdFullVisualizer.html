@@ -47,17 +47,7 @@
         }
         .ad-full {
             position: absolute;
-            top: calc(var(--safe-zone) + var(--ribbon));
-            left: calc(var(--safe-zone) + var(--ribbon));
-            width: calc(100% - 2 * (var(--safe-zone) + var(--ribbon)));
-            height: calc(100% - 2 * (var(--safe-zone) + var(--ribbon)));
-            background: rgba(255, 193, 7, 0.7);
-            border: 2px dashed #ff9800;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2em;
-            color: #333;
+            /* All other styles set by JS for consistency */
         }
         .gutter {
             position: absolute;
@@ -92,6 +82,7 @@
     </style>
 </head>
 <body>
+    <a href="dashboard.html" style="display:inline-block; margin-bottom:18px; padding:8px 16px; background:#2196f3; color:#fff; border-radius:6px; text-decoration:none; font-size:1em;">← Back to Dashboard</a>
     <h1>Magazine Page Ad Calculator</h1>
     <div class="legend">
         <span style="background:#4caf50;"></span> Safe Zone
@@ -109,7 +100,7 @@
     <div class="page">
     <div class="safe-zone"></div>
     <div class="ribbon"></div>
-    <div id="ad-full"></div>
+    <div id="ad-full" class="ad-full"></div>
     <div class="label safe">Safe Zone</div>
     <div class="label ribbon">Ribbon</div>
     </div>
@@ -125,4 +116,5 @@
         Inner Space Height: 11 - 2*(0.125 + 0.25) = 10.25 in<br>
     </p>
 </body>
+<script src="pageAdCalculator.js"></script>
 </html>
